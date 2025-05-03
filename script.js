@@ -1,8 +1,12 @@
 const gridContainer = document.getElementById('grid-container');
+const btn = document.getElementById('btn');
 
 let containerWidth = getComputedStyle(gridContainer).width
 
 function createGrid(gridSize) {
+  
+  gridContainer.innerHTML = null
+
   for(let i = 0; i < gridSize; i++) {
     for(let j = 0; j < gridSize; j++) {
       let gridItem = document.createElement('div')
@@ -26,4 +30,8 @@ gridContainer.addEventListener('mouseover', (e) => {
   setTimeout(() => {
     e.target.style.backgroundColor = ''
   }, 250)
+})
+
+btn.addEventListener('click', () => {
+  createGrid(Number(prompt("Set grid size", 16)))
 })
